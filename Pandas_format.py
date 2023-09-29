@@ -47,6 +47,3 @@ botao.pack()
 
 # Iniciar a interface gráfica
 janela.mainloop()
-
-
-
