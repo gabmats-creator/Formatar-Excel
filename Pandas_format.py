@@ -9,7 +9,7 @@ def formatar_arquivo():
     dataframe = pd.read_excel(f'{input_value}.xlsx', header=None).fillna('')
 
     # Cria um novo arquivo .xls e adiciona uma planilha a ele
-    new_file = f'/home/gabmats/Downloads/sinapi_08_2023/{output_value}.xls'
+    new_file = f'{output_value}.xls'
     workbook = xlwt.Workbook(encoding='utf-8')
     worksheet = workbook.add_sheet('Sheet 1')
 
