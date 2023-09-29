@@ -2,14 +2,14 @@ import pandas as pd
 import xlwt
 import tkinter as tk
 
-def obter_valores():
-    valor1 = entry1.get()
-    valor2 = entry2.get()
+def formatar_arquivo():
+    input_value = entry1.get()
+    output_value = entry2.get()
 # Ler os dados da planilha .xlsx existente em um DataFrame, trata os elementos nulos como strings vazias
-    dataframe = pd.read_excel(f'{valor1}.xlsx', header=None).fillna('')
+    dataframe = pd.read_excel(f'{input_value}.xlsx', header=None).fillna('')
 
     # Cria um novo arquivo .xls e adiciona uma planilha a ele
-    new_file = f'/home/gabmats/Downloads/sinapi_08_2023/{valor2}.xls'
+    new_file = f'/home/gabmats/Downloads/sinapi_08_2023/{output_value}.xls'
     workbook = xlwt.Workbook(encoding='utf-8')
     worksheet = workbook.add_sheet('Sheet 1')
 
@@ -18,7 +18,7 @@ def obter_valores():
         for col_index, cell_value in enumerate(row):
             worksheet.write(row_index, col_index, cell_value)
 
-    # Salvar o arquivo .xls
+    # Salva o arquivo .xls
     workbook.save(new_file)
     print('Arquivo salvo com sucesso')
 
@@ -42,7 +42,7 @@ entry2 = tk.Entry(janela)
 entry2.pack()
 
 # Criar um botão para confirmar a entrada dos valores
-botao = tk.Button(janela, text="Confirmar", command=obter_valores)
+botao = tk.Button(janela, text="Confirmar", command=formatar_arquivo)
 botao.pack()
 
 # Iniciar a interface gráfica
